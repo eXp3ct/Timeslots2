@@ -1,0 +1,26 @@
+﻿version: '3.4'
+
+services:
+  expect.timeslots.api:
+    container_name: timeslots-api
+    image: ${DOCKER_REGISTRY-}expecttimeslotsapi
+    build:
+      context: .
+      dockerfile: Expect.Timeslots.Api/Dockerfile
+    depends_on:
+      - postgres
+    networks:
+      - network
+  
+  postgres:
+    container_name: timeslots-db
+    image: postgres:15
+    networks:
+      - network
+
+
+networks:
+  network:
+    driver: bridge
+
+       
