@@ -30,6 +30,23 @@ namespace Expect.Timeslots.Api
                     config.ReadFrom.Configuration(context.Configuration);
 
                 })
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .ConfigureAppConfiguration((context, config) =>
+                {
+                    var env = context.HostingEnvironment;
+
+                    config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+
+                    config.AddEnvironmentVariables();
+
+                    if(args != null)
+                    {
+                        config.AddCommandLine(args);
+                    }
+                })
+                .ConfigureWebHostDefaults(webBuilder => 
+                { 
+                    webBuilder.UseStartup<Startup>(); 
+                });
     }
 }

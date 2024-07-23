@@ -1,4 +1,6 @@
-﻿namespace Expect.Timeslots.Api
+﻿using Expect.Timeslots.Data;
+
+namespace Expect.Timeslots.Api
 {
     /// <summary>
     /// API configuration
@@ -18,7 +20,7 @@
         /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.IsDevelopment() || env.IsStaging())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
@@ -42,6 +44,7 @@
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             SwaggerOptions.Configure(services);
+            services.AddPersistance(Configuration);
         }
     }
 }
