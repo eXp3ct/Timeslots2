@@ -25,8 +25,4 @@
     <ProjectReference Include="..\Expect.Timeslots.Data\Expect.Timeslots.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
