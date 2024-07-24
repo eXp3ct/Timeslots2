@@ -1,4 +1,10 @@
 ﻿using Expect.Timeslots.Data;
+using Expect.Timeslots.Infrastructure;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.EntityFrameworkCore.Scaffolding;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Expect.Timeslots.Api
 {
@@ -13,18 +19,23 @@ namespace Expect.Timeslots.Api
         /// </summary>
         public IConfiguration Configuration { get; set; } = configuration;
 
+         
+
         /// <summary>
         /// Configure pipeline
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
-            if (env.IsDevelopment() || env.IsStaging())
+            app.UseSwagger();
+            app.UseSwaggerUI(opt =>
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+                foreach (var desc in provider.ApiVersionDescriptions)
+                {
+                    opt.SwaggerEndpoint($"/swagger/{desc.GroupName}/swagger.json", desc.GroupName.ToUpperInvariant());
+                }
+            });
 
             app.UseRouting();
             app.UseAuthorization();
@@ -32,7 +43,7 @@ namespace Expect.Timeslots.Api
             {
                 endpoint.MapControllers();
             });
-
+            
         }
 
         /// <summary>
@@ -41,10 +52,26 @@ namespace Expect.Timeslots.Api
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
+            services.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+                config.ReportApiVersions = true;
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ApiVersionReader = ApiVersionReader.Combine(
+                    new UrlSegmentApiVersionReader(),
+                    new HeaderApiVersionReader("X-Api-Version"));
+
+            }).AddVersionedApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'V";
+                options.SubstituteApiVersionInUrl = true;
+            });
             services.AddEndpointsApiExplorer();
-            SwaggerOptions.Configure(services);
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfiugreSwaggerOptions>();
+            services.AddSwaggerGen();
             services.AddPersistance(Configuration);
+            services.AddInfrastructure();
         }
     }
 }
