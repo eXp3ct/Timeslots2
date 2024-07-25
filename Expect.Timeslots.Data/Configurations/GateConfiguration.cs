@@ -12,8 +12,7 @@ namespace Expect.Timeslots.Data.Configurations
             builder.Property(x => x.Number).IsRequired();
             builder.HasOne<Platform>()
                 .WithMany(p => p.Gates)
-                .HasForeignKey(x => x.PlatformId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey(x => x.PlatformId);
         }
     }
 }

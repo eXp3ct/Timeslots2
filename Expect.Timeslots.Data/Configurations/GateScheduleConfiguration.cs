@@ -11,8 +11,7 @@ namespace Expect.Timeslots.Data.Configurations
             builder.HasKey(x => x.Id);
             builder.HasOne<Gate>()
                 .WithMany()
-                .HasForeignKey(x => x.GateId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey(x => x.GateId);
         }
     }
 }

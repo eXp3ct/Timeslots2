@@ -14,8 +14,7 @@ namespace Expect.Timeslots.Data.Configurations
             builder.Property(x => x.To).IsRequired();
             builder.HasOne<Gate>()
                 .WithMany()
-                .HasForeignKey(x => x.GateId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey(x => x.GateId);
             builder.Property(x => x.TaskType).IsRequired();
         }
     }

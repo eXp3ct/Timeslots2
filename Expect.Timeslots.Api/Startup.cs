@@ -19,13 +19,12 @@ namespace Expect.Timeslots.Api
         /// </summary>
         public IConfiguration Configuration { get; set; } = configuration;
 
-         
-
         /// <summary>
         /// Configure pipeline
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
+        /// <param name="provider"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
             app.UseSwagger();
@@ -70,6 +69,7 @@ namespace Expect.Timeslots.Api
             services.AddEndpointsApiExplorer();
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfiugreSwaggerOptions>();
             services.AddSwaggerGen();
+            services.AddSwaggerGenNewtonsoftSupport();
             services.AddPersistance(Configuration);
             services.AddInfrastructure();
         }

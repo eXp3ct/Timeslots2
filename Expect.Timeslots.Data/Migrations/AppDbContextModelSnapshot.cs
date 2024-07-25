@@ -40,7 +40,7 @@ namespace Expect.Timeslots.Data.Migrations
 
                     b.HasIndex("PlatformId");
 
-                    b.ToTable("Companys");
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("Expect.Timeslots.Domain.Models.CompanySchedule", b =>
@@ -173,8 +173,7 @@ namespace Expect.Timeslots.Data.Migrations
                 {
                     b.HasOne("Expect.Timeslots.Domain.Models.Platform", null)
                         .WithMany()
-                        .HasForeignKey("PlatformId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("PlatformId");
                 });
 
             modelBuilder.Entity("Expect.Timeslots.Domain.Models.CompanySchedule", b =>

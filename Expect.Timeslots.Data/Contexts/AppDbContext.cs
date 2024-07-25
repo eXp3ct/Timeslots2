@@ -10,7 +10,7 @@ namespace Expect.Timeslots.Data.Contexts
         public DbSet<Platform> Platforms { get; set; }
         public DbSet<Gate> Gates { get; set; }
         public DbSet<Timeslot> Timeslots { get; set; }
-        public DbSet<Company> Companys { get; set; }
+        public DbSet<Company> Companies { get; set; }
         public DbSet<CompanySchedule> CompanySchedules { get; set; }
         public DbSet<GateSchedule> GateSchedules { get; set; }
 

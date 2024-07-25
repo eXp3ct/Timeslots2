@@ -9,7 +9,7 @@ namespace Expect.Timeslots.Data.Interfaces
         public DbSet<Platform> Platforms { get; }
         public DbSet<Gate> Gates { get; }
         public DbSet<Timeslot> Timeslots { get; }
-        public DbSet<Company> Companys { get; }
+        public DbSet<Company> Companies { get; }
         public DbSet<CompanySchedule> CompanySchedules { get; }
         public DbSet<GateSchedule> GateSchedules { get; }
 

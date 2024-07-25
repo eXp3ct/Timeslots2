@@ -12,8 +12,7 @@ namespace Expect.Timeslots.Data.Configurations
             builder.Property(x => x.MaxTaskCount).IsRequired();
             builder.HasOne<Company>()
                 .WithMany()
-                .HasForeignKey(x => x.CompanyId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey(x => x.CompanyId);
         }
     }
 }
