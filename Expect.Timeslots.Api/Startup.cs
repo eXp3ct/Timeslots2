@@ -1,8 +1,8 @@
-﻿using Expect.Timeslots.Data;
+﻿using Expect.Timeslots.Api.Middlewares;
+using Expect.Timeslots.Data;
 using Expect.Timeslots.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Versioning;
-using Microsoft.EntityFrameworkCore.Scaffolding;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -38,11 +38,11 @@ namespace Expect.Timeslots.Api
 
             app.UseRouting();
             app.UseAuthorization();
+            app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseEndpoints(endpoint =>
             {
                 endpoint.MapControllers();
             });
-            
         }
 
         /// <summary>
@@ -51,6 +51,7 @@ namespace Expect.Timeslots.Api
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ErrorHandlingMiddleware>();
             services.AddControllers().AddNewtonsoftJson();
             services.AddApiVersioning(config =>
             {
