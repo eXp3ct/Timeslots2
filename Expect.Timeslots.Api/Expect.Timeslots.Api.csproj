@@ -30,4 +30,8 @@
     <ProjectReference Include="..\Expect.Timeslots.Infrastructure\Expect.Timeslots.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Logs\" />
+  </ItemGroup>
+
 </Project>

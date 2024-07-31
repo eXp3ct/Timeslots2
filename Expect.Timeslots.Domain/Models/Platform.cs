@@ -1,5 +1,4 @@
 ﻿using Expect.Timeslots.Domain.Interfaces;
-using Newtonsoft.Json;
 
 namespace Expect.Timeslots.Domain.Models
 {
@@ -8,7 +7,6 @@ namespace Expect.Timeslots.Domain.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
 
-        [JsonIgnore]
-        public IQueryable<Gate>? Gates { get; set; }
+        public IList<Gate>? Gates { get; set; }
     }
 }
