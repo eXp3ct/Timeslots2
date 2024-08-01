@@ -15,6 +15,7 @@ namespace Expect.Timeslots.Data
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseNpgsql(connectionString);
+                options.EnableSensitiveDataLogging(true);
             });
 
             services.AddScoped<IAppDbContext, AppDbContext>();
