@@ -15,7 +15,7 @@ namespace Expect.Timeslots.Infrastructure.Common.Queries.Gates.GetGates
                 .ToListAsync(cancellationToken);
 
             await _context.SaveChangesAsync(cancellationToken);
-            return new OperationResult(true, StatusCodes.Status200OK, gates);
+            return new OperationResult(StatusCodes.Status200OK, gates);
         }
     }
 }

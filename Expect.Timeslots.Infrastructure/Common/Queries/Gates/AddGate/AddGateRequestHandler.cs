@@ -14,10 +14,10 @@ namespace Expect.Timeslots.Infrastructure.Common.Queries.Gates.AddGate
             var added = await _context.Gates.AddAsync(gate, cancellationToken);
 
             if (added is null)
-                return new OperationResult(false, StatusCodes.Status400BadRequest, gate);
+                return new OperationResult(StatusCodes.Status400BadRequest, gate);
 
             await _context.SaveChangesAsync(cancellationToken);
-            return new OperationResult(true, StatusCodes.Status201Created, gate);
+            return new OperationResult(StatusCodes.Status201Created, gate);
         }
     }
 }

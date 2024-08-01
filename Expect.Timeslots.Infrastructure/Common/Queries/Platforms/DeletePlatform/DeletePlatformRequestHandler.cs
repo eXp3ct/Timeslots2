@@ -12,12 +12,12 @@ namespace Expect.Timeslots.Infrastructure.Common.Queries.Platforms.DeletePlatfor
             var platform = await _context.Platforms.FindAsync([request.Id, cancellationToken], cancellationToken: cancellationToken);
 
             if (platform == null)
-                return new OperationResult(false, StatusCodes.Status404NotFound, platform);
+                return new OperationResult(StatusCodes.Status404NotFound, platform);
 
             var deleted = _context.Platforms.Remove(platform);
 
             await _context.SaveChangesAsync(cancellationToken);
-            return new OperationResult(true, StatusCodes.Status200OK, deleted.Entity);
+            return new OperationResult(StatusCodes.Status200OK, deleted.Entity);
         }
     }
 }

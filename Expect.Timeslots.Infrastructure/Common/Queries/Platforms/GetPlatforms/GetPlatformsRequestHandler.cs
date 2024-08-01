@@ -15,7 +15,7 @@ namespace Expect.Timeslots.Infrastructure.Common.Queries.Platforms.GetPlatforms
                 .Include(x => x.Gates)
                 .ToListAsync(cancellationToken);
 
-            return new OperationResult(true, StatusCodes.Status200OK, platforms);
+            return new OperationResult(StatusCodes.Status200OK, platforms);
         }
     }
 }

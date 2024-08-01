@@ -15,10 +15,10 @@ namespace Expect.Timeslots.Infrastructure.Common.Queries.Platforms.AddPlatform
             var added = await _context.Platforms.AddAsync(platform, cancellationToken);
 
             if (added is null)
-                return new OperationResult(false, StatusCodes.Status400BadRequest, platform);
+                return new OperationResult(StatusCodes.Status400BadRequest, platform);
 
             await _context.SaveChangesAsync(cancellationToken);
-            return new OperationResult(true, StatusCodes.Status201Created, platform);
+            return new OperationResult(StatusCodes.Status201Created, platform);
         }
     }
 }

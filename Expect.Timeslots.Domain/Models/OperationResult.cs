@@ -1,8 +1,17 @@
-﻿namespace Expect.Timeslots.Domain.Models
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Expect.Timeslots.Domain.Models
 {
-    public class OperationResult(bool success, int code, object? data)
+    public class OperationResult(int code, object? data)
     {
-        public bool Success { get; } = success;
+        public bool Success
+        {
+            get
+            {
+                return Code >= StatusCodes.Status200OK && Code < StatusCodes.Status400BadRequest;
+            }
+        }
+
         public int Code { get; } = code;
         public object? Data { get; } = data;
     }

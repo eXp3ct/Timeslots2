@@ -15,9 +15,9 @@ namespace Expect.Timeslots.Infrastructure.Common.Queries.Platforms.GetPlatform
                 .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
 
             if (platform == null)
-                return new OperationResult(false, StatusCodes.Status404NotFound, platform);
+                return new OperationResult(StatusCodes.Status404NotFound, platform);
 
-            return new OperationResult(true, StatusCodes.Status200OK, platform);
+            return new OperationResult(StatusCodes.Status200OK, platform);
         }
     }
 }

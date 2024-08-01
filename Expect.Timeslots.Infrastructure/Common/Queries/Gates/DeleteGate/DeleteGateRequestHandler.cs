@@ -12,13 +12,13 @@ namespace Expect.Timeslots.Infrastructure.Common.Queries.Gates.DeleteGate
             var gate = await _context.Gates.FindAsync([request.Id, cancellationToken], cancellationToken);
 
             if (gate == null)
-                return new OperationResult(false, StatusCodes.Status404NotFound, gate);
+                return new OperationResult(StatusCodes.Status404NotFound, gate);
 
             var deleted = _context.Gates.Remove(gate);
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            return new OperationResult(true, StatusCodes.Status200OK, gate);
+            return new OperationResult(StatusCodes.Status200OK, gate);
         }
     }
 }

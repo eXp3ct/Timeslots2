@@ -35,14 +35,26 @@ namespace Expect.Timeslots.Api.Middlewares
                     })
                     .ToList();
 
-                var result = new OperationResult(false, StatusCodes.Status400BadRequest, errors);
+                _logger.LogWarning("Object can't pass through validation");
 
-                _logger.LogWarning("Error occured while validating");
-
-                context.Response.StatusCode = result.Code;
-
-                await context.Response.WriteAsJsonAsync(result);
+                await ModifyResponse(context, StatusCodes.Status400BadRequest, errors);
             }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Unhanlded error occured");
+                await ModifyResponse(context, StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        private async Task ModifyResponse(HttpContext context, int statusCode, object? data)
+        {
+            _logger.LogWarning("API's response was modifed from {statusCode} to {newStatusCode} status code", context.Response.StatusCode, statusCode);
+
+            context.Response.StatusCode = statusCode;
+
+            var result = new OperationResult(statusCode, data);
+
+            await context.Response.WriteAsJsonAsync(result);
         }
     }
 }

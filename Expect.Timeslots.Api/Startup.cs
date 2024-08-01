@@ -1,6 +1,7 @@
 ﻿using Expect.Timeslots.Api.Middlewares;
 using Expect.Timeslots.Data;
 using Expect.Timeslots.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Options;
@@ -55,7 +56,7 @@ namespace Expect.Timeslots.Api
             services.AddControllers().AddNewtonsoftJson();
             services.AddApiVersioning(config =>
             {
-                config.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+                config.DefaultApiVersion = new ApiVersion(1, 0);
                 config.ReportApiVersions = true;
                 config.AssumeDefaultVersionWhenUnspecified = true;
                 config.ApiVersionReader = ApiVersionReader.Combine(
