@@ -26,6 +26,15 @@ namespace Expect.Timeslots.Api.Controllers
         /// </summary>
         /// <param name="dto">Gate info</param>
         /// <param name="cancellationToken"></param>
+        /// <remarks>
+        /// Example:
+        /// 
+        ///     POST /gates
+        ///     {
+        ///         "number": 10,
+        ///         "platformId": 9894EEFD-177C-4776-B828-556F1CA733C6
+        ///     }
+        /// </remarks>
         /// <returns>Created gate</returns>
         [HttpPost]
         [ProducesResponseType<OperationResult>(StatusCodes.Status400BadRequest, "application/json")]
@@ -48,6 +57,11 @@ namespace Expect.Timeslots.Api.Controllers
         /// <param name="page">Page number</param>
         /// <param name="pageSize">Page size</param>
         /// <param name="cancellationToken"></param>
+        /// <remarks>
+        /// Example:
+        /// 
+        ///     GET /gates?page=1&amp;pageSize=10
+        /// </remarks>
         /// <returns>List of gates</returns>
         [HttpGet]
         [ProducesResponseType<OperationResult>(StatusCodes.Status200OK, "application/json")]
@@ -65,6 +79,11 @@ namespace Expect.Timeslots.Api.Controllers
         /// </summary>
         /// <param name="id">Id of gate</param>
         /// <param name="cancellationToken"></param>
+        /// <remarks>
+        /// Example:
+        /// 
+        ///     GET /gates/9894EEFD-177C-4776-B828-556F1CA733C6
+        /// </remarks>
         /// <returns>Gate</returns>
         [HttpGet]
         [Route("{id}")]
@@ -87,6 +106,11 @@ namespace Expect.Timeslots.Api.Controllers
         /// </summary>
         /// <param name="id">Id of gate</param>
         /// <param name="cancellationToken"></param>
+        /// <remarks>
+        /// Example:
+        /// 
+        ///     DELETE /gates/9894EEFD-177C-4776-B828-556F1CA733C6
+        /// </remarks>
         /// <returns>Deleted gate</returns>
         [HttpDelete]
         [Route("{id}")]

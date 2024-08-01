@@ -22,6 +22,14 @@ namespace Expect.Timeslots.Api.Controllers
         /// <summary>
         /// Creating platform
         /// </summary>
+        /// <remarks>
+        /// Example:
+        /// 
+        ///     POST /platforms
+        ///     {
+        ///         "name": "Platform name"
+        ///     }
+        /// </remarks>
         /// <param name="dto">Platform info</param>
         /// <param name="cancellationToken"></param>
         /// <returns>Created platform</returns>
@@ -46,6 +54,11 @@ namespace Expect.Timeslots.Api.Controllers
         /// <param name="page">Page number</param>
         /// <param name="pageSize">Page size</param>
         /// <param name="cancellationToken"></param>
+        /// <remarks>
+        /// Example:
+        ///     
+        ///     GET /platforms?page=1&amp;pageSize=10
+        /// </remarks>
         /// <returns>List of platforms</returns>
         [HttpGet]
         [ProducesResponseType<OperationResult>(StatusCodes.Status200OK, "application/json")]
@@ -63,6 +76,11 @@ namespace Expect.Timeslots.Api.Controllers
         /// </summary>
         /// <param name="id">Id of the platform</param>
         /// <param name="cancellationToken"></param>
+        /// <remarks>
+        /// Example:
+        ///     
+        ///     GET /platforms/9894EEFD-177C-4776-B828-556F1CA733C6
+        /// </remarks>
         /// <returns>Platform</returns>
         [HttpGet]
         [Route("{id}")]
@@ -85,6 +103,11 @@ namespace Expect.Timeslots.Api.Controllers
         /// </summary>
         /// <param name="id">Id of the platform</param>
         /// <param name="cancellationToken"></param>
+        /// <remarks>
+        /// Example:
+        /// 
+        ///     DELETE /platforms/9894EEFD-177C-4776-B828-556F1CA733C6
+        /// </remarks>
         /// <returns>Deleted platform</returns>
         [HttpDelete]
         [Route("{id}")]

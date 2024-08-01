@@ -7,6 +7,6 @@ namespace Expect.Timeslots.Domain.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
 
-        public IList<Gate>? Gates { get; set; }
+        public IReadOnlyCollection<Gate>? Gates { get; set; }
     }
 }
