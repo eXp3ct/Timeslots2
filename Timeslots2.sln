@@ -5,15 +5,17 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9266FA6B-6038-4E83-AA6A-14125DA8ACBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expect.Timeslots.Api", "Expect.Timeslots.Api\Expect.Timeslots.Api.csproj", "{2FFEA685-1E2D-49B5-A75A-3E9C847255E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expect.Timeslots.Api", "Expect.Timeslots.Api\Expect.Timeslots.Api.csproj", "{2FFEA685-1E2D-49B5-A75A-3E9C847255E6}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5D9DA5B5-E589-4D14-B14F-75DC415D7AF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expect.Timeslots.Data", "Expect.Timeslots.Data\Expect.Timeslots.Data.csproj", "{8EA780C4-F197-4337-B6AA-0F7B4C47417C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expect.Timeslots.Data", "Expect.Timeslots.Data\Expect.Timeslots.Data.csproj", "{8EA780C4-F197-4337-B6AA-0F7B4C47417C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expect.Timeslots.Domain", "Expect.Timeslots.Domain\Expect.Timeslots.Domain.csproj", "{912496E8-7547-44D2-B634-20E28D47B453}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expect.Timeslots.Domain", "Expect.Timeslots.Domain\Expect.Timeslots.Domain.csproj", "{912496E8-7547-44D2-B634-20E28D47B453}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expect.Timeslots.Infrastructure", "Expect.Timeslots.Infrastructure\Expect.Timeslots.Infrastructure.csproj", "{1AAC2601-E897-4402-8388-7C180A8B4DF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expect.Timeslots.Infrastructure", "Expect.Timeslots.Infrastructure\Expect.Timeslots.Infrastructure.csproj", "{1AAC2601-E897-4402-8388-7C180A8B4DF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expect.Timelots.Auth", "Expect.Timelots.Auth\Expect.Timelots.Auth.csproj", "{0A765C60-A7BB-40DD-95FC-4C3C679920AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{1AAC2601-E897-4402-8388-7C180A8B4DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AAC2601-E897-4402-8388-7C180A8B4DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AAC2601-E897-4402-8388-7C180A8B4DF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A765C60-A7BB-40DD-95FC-4C3C679920AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A765C60-A7BB-40DD-95FC-4C3C679920AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A765C60-A7BB-40DD-95FC-4C3C679920AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A765C60-A7BB-40DD-95FC-4C3C679920AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{8EA780C4-F197-4337-B6AA-0F7B4C47417C} = {9266FA6B-6038-4E83-AA6A-14125DA8ACBF}
 		{912496E8-7547-44D2-B634-20E28D47B453} = {9266FA6B-6038-4E83-AA6A-14125DA8ACBF}
 		{1AAC2601-E897-4402-8388-7C180A8B4DF0} = {9266FA6B-6038-4E83-AA6A-14125DA8ACBF}
+		{0A765C60-A7BB-40DD-95FC-4C3C679920AE} = {9266FA6B-6038-4E83-AA6A-14125DA8ACBF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3EDB612-73E6-4437-B63B-5E6DFEC7D75F}

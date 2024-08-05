@@ -4,7 +4,8 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "expect.timeslots.api": "StartDebugging"
+        "expect.timeslots.api": "StartDebugging",
+        "expect.timelots.auth": "StartDebugging"
       }
     }
   }

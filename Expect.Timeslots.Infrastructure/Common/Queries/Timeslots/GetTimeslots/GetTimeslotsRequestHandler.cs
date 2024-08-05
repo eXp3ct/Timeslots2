@@ -30,13 +30,12 @@ namespace Expect.Timeslots.Infrastructure.Common.Queries.Timeslots.GetTimeslots
 
             
             var minutesNeeded = GetNeededMinutes(pallets);
-            var gateId = Guid.NewGuid();
+            var gateId = (await _context.Gates.FirstOrDefaultAsync(cancellationToken)).Id;
 
             foreach (var day in  nearbyDays)
             {
                 var currentTime = new DateTime(day, GateStartTime);
                 var gateEnd = new DateTime(day, GateEndTime);
-                //var currentTime = GateStartTime;
 
                 while (currentTime.AddMinutes(minutesNeeded) < gateEnd)
                 {

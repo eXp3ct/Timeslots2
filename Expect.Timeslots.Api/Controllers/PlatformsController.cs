@@ -5,6 +5,8 @@ using Expect.Timeslots.Infrastructure.Common.Queries.Platforms.DeletePlatform;
 using Expect.Timeslots.Infrastructure.Common.Queries.Platforms.GetPlatform;
 using Expect.Timeslots.Infrastructure.Common.Queries.Platforms.GetPlatforms;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Expect.Timeslots.Api.Controllers
@@ -12,6 +14,7 @@ namespace Expect.Timeslots.Api.Controllers
     /// <summary>
     /// Platform controller
     /// </summary>
+    [Authorize]
     [ApiController]
     [ApiVersion("1.0")]
     [Route("/v{version:apiVersion}/[controller]")]
