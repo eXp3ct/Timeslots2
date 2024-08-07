@@ -19,10 +19,4 @@ services:
     ports:
       - 5432:5432
 
-  expect.timelots.auth:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Docker
-      - ASPNETCORE_HTTP_PORTS=8080
-    ports:
-      - "5050:8080"
 

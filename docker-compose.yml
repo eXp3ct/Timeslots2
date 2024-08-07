@@ -18,18 +18,6 @@ services:
     networks:
       - network
 
-
-  expect.timelots.auth:
-    container_name: timelots-auth
-    image: ${DOCKER_REGISTRY-}expecttimelotsauth
-    build:
-      context: .
-      dockerfile: Expect.Timelots.Auth/Dockerfile
-    depends_on:
-      - postgres
-    networks:
-      - network
-
 networks:
   network:
     driver: bridge

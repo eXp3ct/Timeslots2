@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expect.Timeslots.Domain", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expect.Timeslots.Infrastructure", "Expect.Timeslots.Infrastructure\Expect.Timeslots.Infrastructure.csproj", "{1AAC2601-E897-4402-8388-7C180A8B4DF0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expect.Timeslots.Auth", "Expect.Timelots.Auth\Expect.Timeslots.Auth.csproj", "{0A765C60-A7BB-40DD-95FC-4C3C679920AE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,10 +41,6 @@ Global
 		{1AAC2601-E897-4402-8388-7C180A8B4DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AAC2601-E897-4402-8388-7C180A8B4DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AAC2601-E897-4402-8388-7C180A8B4DF0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A765C60-A7BB-40DD-95FC-4C3C679920AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A765C60-A7BB-40DD-95FC-4C3C679920AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A765C60-A7BB-40DD-95FC-4C3C679920AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A765C60-A7BB-40DD-95FC-4C3C679920AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,7 +50,6 @@ Global
 		{8EA780C4-F197-4337-B6AA-0F7B4C47417C} = {9266FA6B-6038-4E83-AA6A-14125DA8ACBF}
 		{912496E8-7547-44D2-B634-20E28D47B453} = {9266FA6B-6038-4E83-AA6A-14125DA8ACBF}
 		{1AAC2601-E897-4402-8388-7C180A8B4DF0} = {9266FA6B-6038-4E83-AA6A-14125DA8ACBF}
-		{0A765C60-A7BB-40DD-95FC-4C3C679920AE} = {9266FA6B-6038-4E83-AA6A-14125DA8ACBF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3EDB612-73E6-4437-B63B-5E6DFEC7D75F}
