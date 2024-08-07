@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expect.Timeslots.Domain", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expect.Timeslots.Infrastructure", "Expect.Timeslots.Infrastructure\Expect.Timeslots.Infrastructure.csproj", "{1AAC2601-E897-4402-8388-7C180A8B4DF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expect.Timelots.Auth", "Expect.Timelots.Auth\Expect.Timelots.Auth.csproj", "{0A765C60-A7BB-40DD-95FC-4C3C679920AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expect.Timeslots.Auth", "Expect.Timelots.Auth\Expect.Timeslots.Auth.csproj", "{0A765C60-A7BB-40DD-95FC-4C3C679920AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

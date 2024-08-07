@@ -78,10 +78,11 @@ namespace Expect.Timeslots.Api
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddPersistance(Configuration);
             services.AddInfrastructure();
+            services.AddHttpClient();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
                 {
-                    options.Authority = "http://timelots-auth:5050";
+                    options.Authority = "http://timelots-auth:8080";
                     options.RequireHttpsMetadata = false;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
