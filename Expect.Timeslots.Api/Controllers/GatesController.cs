@@ -5,8 +5,8 @@ using Expect.Timeslots.Infrastructure.Common.Queries.Gates.DeleteGate;
 using Expect.Timeslots.Infrastructure.Common.Queries.Gates.GetGate;
 using Expect.Timeslots.Infrastructure.Common.Queries.Gates.GetGates;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ActionConstraints;
 
 namespace Expect.Timeslots.Api.Controllers
 {
@@ -15,6 +15,7 @@ namespace Expect.Timeslots.Api.Controllers
     /// </summary>
     /// <param name="mediator"></param>
     [ApiController]
+    [Authorize]
     [ApiVersion("1.0")]
     [Route("/v{version:apiVersion}/[controller]")]
     public class GatesController(IMediator mediator) : ControllerBase
@@ -95,7 +96,7 @@ namespace Expect.Timeslots.Api.Controllers
 
             var result = await _mediator.Send(request, cancellationToken);
 
-            if(result.Code == StatusCodes.Status404NotFound)
+            if (result.Code == StatusCodes.Status404NotFound)
                 return NotFound(result);
 
             return Ok(result);

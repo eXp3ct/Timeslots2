@@ -5,6 +5,7 @@ using Expect.Timeslots.Infrastructure.Common.Queries.Companies.DeleteCompany;
 using Expect.Timeslots.Infrastructure.Common.Queries.Companies.GetCompanies;
 using Expect.Timeslots.Infrastructure.Common.Queries.Companies.GetCompany;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Expect.Timeslots.Api.Controllers
@@ -12,6 +13,7 @@ namespace Expect.Timeslots.Api.Controllers
     /// <summary>
     /// Compnies controller
     /// </summary>
+    [Authorize]
     [ApiController]
     [ApiVersion("1.0")]
     [Route("/v{version:apiVersion}/[controller]")]

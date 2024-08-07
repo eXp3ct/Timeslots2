@@ -2,6 +2,7 @@
 using Expect.Timeslots.Domain.Models;
 using Expect.Timeslots.Infrastructure.Common.Queries.Timeslots.GetTimeslots;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Expect.Timeslots.Api.Controllers
@@ -10,6 +11,7 @@ namespace Expect.Timeslots.Api.Controllers
     /// Timeslots controller
     /// </summary>
     [ApiController]
+    [Authorize]
     [ApiVersion("1.0")]
     [Route("/v{version:apiVersion}/[controller]")]
     public class TimeslotsController(IMediator mediator) : ControllerBase

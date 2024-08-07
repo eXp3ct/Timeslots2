@@ -1,11 +1,14 @@
 ﻿using Expect.Timeslots.Api.Middlewares;
 using Expect.Timeslots.Data;
 using Expect.Timeslots.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Expect.Timeslots.Api
 {
@@ -38,6 +41,7 @@ namespace Expect.Timeslots.Api
             });
 
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseEndpoints(endpoint =>
@@ -74,6 +78,25 @@ namespace Expect.Timeslots.Api
             services.AddSwaggerGenNewtonsoftSupport();
             services.AddPersistance(Configuration);
             services.AddInfrastructure();
+            services.AddHttpClient();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+                {
+                    options.Authority = "http://timelots-auth:8080";
+                    options.RequireHttpsMetadata = false;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false,
+                        ValidateIssuer = false,
+                        ValidateIssuerSigningKey = false,
+                        SignatureValidator = delegate(string token, TokenValidationParameters parameters)
+                        {
+                            var jwt = new Microsoft.IdentityModel.JsonWebTokens.JsonWebToken(token);
+                            return jwt;
+                        }
+                    };
+                    
+                });
         }
     }
 }

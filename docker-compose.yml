@@ -1,4 +1,4 @@
-﻿version: '3.4'
+version: '3.4'
 
 services:
   expect.timeslots.api:
@@ -18,9 +18,9 @@ services:
     networks:
       - network
 
-
 networks:
   network:
     driver: bridge
 
        
+
